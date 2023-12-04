@@ -1,0 +1,346 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="pl">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+	h1 {
+		border-bottom: solid 1px black;
+	}
+	h2 {
+		margin-top: 20pt;
+		margin-bottom: 5pt;
+		padding-bottom: 0;
+		padding-top: 20pt;
+	}
+	img {
+		max-width: 100%;
+	}
+</style>
+<title>Porady - Inkscape</title>
+</head>
+<body>
+<H1>Korzystanie z Inkscape do rysowania planów jaskiń</H1>
+<p style="color: #800;">
+	Aktualizacja: <b>grudzień 2023</b>. Dotyczy Inkscape <b>v1.3.</b>
+</p>
+<h2>1. Czego potrzebuję, żeby zacząć?</h2>
+<ol>
+	<li>Pobierz Inkscape z <a href="https://www.inkscape.org/">https://www.inkscape.org/</a>
+		oraz plik wzorcowy <a href="Cave.svgz">Cave.svgz</a> z tej strony.
+		<small>Aby pobrać ten plik wzorcowy, być może będzie trzeba użyć prawego klawisza myszy i funkcji <i>Zapisz jako</i></small>
+	</li>
+	<li>Uwaga! <b>Bardzo ważne.</b> Nie zaczynaj nowego rysunku od <b>Plik / Nowy</b>!
+		Zacznij od otwarcia <b>pliku wzorcowego Cave.svgz</b>. Następnie zapisz go
+		pod nową nazwą, adekwatną dla Twojego projektu (np. <i>MIETUSIA_WYZNIA_Plan.svgz</i>). I dopiero
+		wtedy ruszaj z robotą!</li>
+</ol>
+<p>
+	Dlaczego tak? Plik wzorcowy zawiera kilka przydatnych definicji: kształty symboli, desenie wypełnień
+	(np. kamienie, śnieg) oraz symbole liniowe (próg, okap). Oczywiście możesz za każdym razem rysować
+	te elementy od nowa, ale po co? Lepiej skorzystać z ,,gotowca''!
+</p>
+<h2>2. Jak zacząć? Jak otworzyć ciąg pomiarowy?</h2>
+<img src="i/survey-import.png">
+<p>
+	Ja zaczynam zawsze od <b>wczytania ciągu pomiarowego</b>. Dostosowuję do niego wielkość strony i umieszczam
+	go w odpowiednim miejscu (tak, aby zachować odległość do marginesów strony). Ciąg pomiarowy stanowi mój
+	punkt odniesienia - to właśnie on nadaje skalę i orientację na północ. Jego stała obecność podczas pracy
+	nad rysunkiem robi różnicę pomiędzy takim tam mazaniem po ekranie, a tworzeniem <b>prawdziwego planu</b>.
+	Całą moją pracę nad planem <b>dopasowuję</b> do ciągu pomiarowego. Dlatego po imporcie i rozmieszczeniu
+	na stronie, ciągu nie należy nigdy skalować,
+	obracać ani też przesuwać <small>(no chyba, że z wszystkimi innymi odniesionymi do niego obiektami).</small> Pomaga
+	w tym <b>blokowanie warstw</b>
+</p>
+<img src="i/layer-lock.png">
+<p>
+	No dobrze, ale jak właściwie wczytać ciąg pomiarowy? Najpierw musisz ze swojego programu do obliczeń jaskiniowych
+	wyeksportować go  w formacie, który	zaakceptuje Inkscape. Najlepszy jest SVG. Przykładowo,
+	w pakiecie Survex plik SVG można wygenerować z łatwością przy pomocy funkcji <i>Plik / Eksportuj</i> w programie
+	Aven. I teraz <b>uwaga, bardzo ważne!</b>
+	Taki plik otwieramy w Inkscape <b>wcale nie</b> przy pomocy <i>Plik / Otwórz</i>!
+	Zamiast tego, otwórz
+	okno <i>Warstwy / Warstwy i obiekty ...</i>, wybierz warstwę <i>Ciąg pomiarowy</i> (<i>Survey</i>)
+	a następnie użyj funkcji <i><b>Plik / Importuj</b></i>! Na pytanie o <i>Rodzaj importu</i> odpowiedz
+	<i>Dodaj obraz SVG jako edytowalny obiekt w bieżącym pliku.</i>.
+
+</p>
+
+<h2>3. Jak otworzyć szkice terenowe?</h2>
+<p>
+	Najpierw trzeba doprowadzić je do formatu rozpoznawanego przez Inkscape - na przykład JPG, PNG lub
+	SVG. A potem, ważne! Podobnie jak ciągu pomiarowego, również i szkicu nie wczytujemy wcale
+	poprzez <b>Plik / Otwórz</b>. Zamiast tego, zaznacz jako aktywną warstwę <i>Sketch</i>
+	(<i>Szkic</i>) użyj <b>Plik / Importuj</b>. Dzięki temu szkic zamiast w nowym oknie, zostanie
+	dołączony do obecnie obrabianego dokumentu.
+</p>
+<img src="i/sketch.png">
+<p>
+	Szkic, to szkic. Rysunek pomocniczy. Nie jest tak święty, jak ciąg pomiarowy. Można go śmiało
+	doginać, skalować, przesuwać - tak, aby pasował do ciągu. Całkiem możliwe, że Twój ciąg pomiarowy
+	jest skorygowany przez Twój program do obliczeń o deklinację magnetyczną - a szkic nie! Wobec
+	tego nie jest niczym dziwnym, że szkice czasami trzeba delikatnie obrócic, żeby prawidłowo
+	zgrywały się z ciągiem pomiarowym.
+</p>
+
+<h2>4. Jak podzielić rysunek na warstwy?</h2>
+<p>
+	Szczerze mówiąc, nie ma to aż takiego znaczenia. Na pewno z warstw warto korzystać. Trzeba znaleźć
+	w tym złoty środek. Czy jeziorka powinny być na osobnej warstwie? A kreski i strzałki oznaczająca płaszczyznę
+	przekroju poprzecznego i kierunek patrzenia? Zarówno za mało warstw, jak i za dużo warstw prowadzi do
+	bałaganu - różnica jest tylko w tym, w którym momencie ten bałagan zemści się koniecznością
+	wykonania dodatkowej, bezsensownej pracy.
+</p>
+<p>
+	Jeśli chcesz skorzystać z moich doświadczeń, to możesz spróbować zacząć od układu warstw zdefiniowanego
+	w pliku wzorcowym, który mi się dobrze sprawdza. Możesz też uznać, że na początek jest tego trochę za dużo -
+	nie będę tym zdziwiony. Moim zdaniem absolutne minimum to: <b>Obrys</b>, <b>Szczegóły</b>, <b>Ciąg pomiarowy</b>,
+	<b>Szkic</b>.
+</p>
+<p>
+	Skoro już jesteśmy przy warstwach: przez pierwsze kilkadziesiąt godzin pracy z programem
+	każdy notorycznie wstawia obiekty nie na te warstwy. Na pewno warto znać takie dwie funkcje Inkscape, którymi
+	można łatwo poprawić takie błędy: <b>Edycja / Wklej w miejscu pochodzenia</b> oraz <b>Przenieś na warstwę...</b> - ta druga
+	jest dostępna z menu, które pojawia się po kliknięciu prawym klawiszem na jakimś obiekcie.
+</p>
+<h2>5. Jak narysować na czysto obrys korytarzy (ściany)?</h2>
+<P>
+	Stanowczo nie rysuj odręcznie narzędziem <i>Ołówek</i>. Użyj narzędzia <I>Pióro</I> - czyli tzw. krzywych Bezier.
+	Komputerowy zapis takich krzywych wymaga zazwyczaj dużo mniej informacji niż w przypadku linii odręcznych. W
+	przypadku obróbki grafiki zawierającej dużą ilość linii (co jest typowe dla dokumentacji jaskiniowej), to ilosć danych do
+	przetworzenia ma wpływ na płynność działania programu graficznego. Typowo, będzie ona zdecydowanie lepsza dla rysunków
+	wprowadzonych  jako krzywe <I>Bezier</I>. Poza tym, krzywe <I>Beizer</I> na ogół skalują się bardziej
+	płynnie (np. jeśli zechcemy powiększyć fragment planu).
+</P>
+<P>
+	Aby narysować taką krzywą w <I>Inkscape</I>, wybieramy narzędzie <I>Pióro</I> (skrót klawiszowy B), oraz wskazujemy
+	myszką kolejne punkty (tzw. <I>węzły</I>), które mają definiować krzywą. Pojedyncze kliknięcie lewym klawiszem w punkt na ekranie
+	powoduje, że linia jest kontyunuowana linią prostą. <b>Kliknięcie i przytrzymanie lewego klawisza myszy</b> umożliwia
+	wygięcie linii w krzywą.
+</P>
+<P>
+	Wprowadzanie krzywej zakańczamy wciśnięciem <I>ENTER</I> lub (w przypadku krzywych zamkniętych) kliknięciem w punkt, od którego
+	rozpoczęliśmy rysowanie. Położenie <I>węzłów</I> oraz ich typ tj. linia prosta, krzywa symetryczna (gładkie przejście przez punkt), krzywa asymetryczna
+	(narożnik w punkcie) można dla danej krzywej zmienić w każdej chwili za pomocą narzędzia edycji krzywej (skrót klawiszowy N).
+</P>
+<P>
+	Warto zwrócić uwagę na to, że wybranie narzędzia <I>Pióra</I> (B) w momencie, kiedy na ekranie za pomocą narzędzia wybierania
+	obiektów (S) jest już zaznaczona jakaś krzywa pozwala na łatwe jej kontynuowanie.
+</P>
+<P>
+	Styl linii (grubość) zmienia się za pomocą opcji <I>Obiekt – Wypełnienie i kontur</I> (Shift+Ctrl+F). Linie
+	przerywane wprowadzaj jako jedną krzywą z ustalonym odpowiednim stylem konturu (w opcji <I>Wypełnienie i kontur</I>), a nie jako kilka krzywych ciągłych!
+</P>
+<H2>6. Jakich użyć grubości linii? Jakich kolorów?</H2>
+<P>
+	Ja używam: obrys ścian: 0.5 mm, szczegóły spągu i progi 0.28 mm, drobne szczegóły spągu 0.1 mm.
+	Kolor wody (RGBA) 0083d1ff, przezroczystość warstwy z wodą 50%. <small>Dlaczego 0.28 mm? Równie dobrze mogłoby być
+	0.25 mm, co za róznica. Ale w przypadku gdyby naszła mnie ochota na eksport do pliku rastrowego,
+	zamiast do PDF, to 0.28 mm to dokładnie 1 piksel (przy 90 DPI)! </small>
+</P>
+<p>
+	Na pewno <b>warto znać</b> funkcję	<I>Edycja / Wklej / Wklej styl </I>(Ctrl+Shift+V) –
+	dzięki niej można łatwo kopiować style i kolory pomiędzy obiektami. Najpierw skopiuj (Ctrl+C) obiekt,
+	który ma być wzorcem stylu (który ma ustawiony pożądany styl linii czy kolor wypełnienia), następnie
+	zaznacz obiekty które mają wyglądać identycznie i użyj <i>Wklej styl</i>. Dzięki temu trikowi nie trzeba
+	ciągle zaglądać do <i>Wypełnienia i konturu</i> i zastanawiać się nad grubościami.
+</p>
+<h2>7. Jak wstawić symbol? Stalaktyt, strzałka pochylni albo kierunek przepływu wody?</h2>
+<p>
+	Użyj funkcji <i>Obiekt / Symbole</i>. Otworzy się paleta symboli, z której możesz przeciągać i upuszczać
+	do dokumentu. Symboli, co do zasady, nie należy skalować. Jeśli wydają się za duże lub za małe, to prawdopodobnie
+	rysujesz Twój plan w nieodpowiedniej skali.
+</p>
+<img src="i/symbole2.png">
+<p>
+	<b>Warto wiedzieć: </b> Przesuwając symbol przy pomocy kursora myszy wciśnij <b>spację</b> (ale nie puszczaj
+	lewego klawisza myszy!). Symbol skopiuje się w miejscu, w którym aktualnie znajduje się kursor myszy. Jest to
+	wygodny sposób, aby wstawić obok siebie kilka symboli. Tylko nie przesadzaj!
+</p>
+<h2>8. Jak zrobić symbol progu lub okapu?</h2>
+<p>
+	Narysuj kreskę, która będzie wyznaczała krawędź progu. Taką zwykłą kreskę - prostą lub krzywą, długą lub krótką,
+	ale bez specjalnych ozdobników. Następnie zaznacz jakiś <b>wcześniej już przygotowany</b> symbol progu. Taki symbol
+	znajdziesz na przykład poza obszarem strony w pliku wzorcowym. Skopiuj go do schowka (Ctrl+C). Wróć do Twojej pierwszej
+	kreski i użyj funkcji: <i>Edycja / Wklej ... / Wklej styl</i>, a następnie - <b>ważne</b> - <i>Ścieżka / Wklej efekt ścieżki</i>.
+	Aby sprawnie wykonywać te dwie operacje, warto nauczyć się skrótów klawiszowych. W moim Inkscape są to: <i>Ctrl+Shift+V</i> oraz <i>Shift+7</i>.
+</p>
+<p>
+	Dokładnie w ten sam sposób możesz wygenerować symbol okapu. Aby odwrócić kierunek progów czy okapów,
+	użyj funkcji <I>Ścieżka – Odwróć </I> mając zaznaczoną linię progu (okapu).
+</p>
+<p>
+	<small>
+		Progi są "symulowane" poprzez efekt "linijki" wbudowany w Inkscape. Możesz wyregulować parametry przy pomocy
+		funkcji <i>Ścieżka / Edytor efektów ścieżki</i>
+	</small>
+</p>
+<h2>9. Jak wypełnić obszar kamieniami?</h2>
+<p>
+	Narysuj obszar, który ma zostać wypełniony (tak jak każdą inną kreskę - narzędziem <i>Pióro</i> - tylko tyle, że
+	tym razem będzie to krzywa zamknięta). Otwórz <i>Obiekt / Wypełnienie i kontur</i>. W zakładce <i>Wypełnienie</i>
+	wybierz ikonkę podpisaną "Deseń". Spośród wzórów wypełnienia wybierz odpowiadające Ci kamienie. Zwróć uwagę,
+	że do wyboru są dwie różne gęstości kamieni.
+</p>
+<img src="i/patterns.png">
+
+<p>
+	Aby zmienić <b>wielkość</b> kamieni, dostosuj wartości w polach <i>Skaluj X</i> i <i>Skaluj Y</i> (... użyj
+	raczej dwóch takich samych wartości!). W zakładce <i>Kontur</i> wyłącz rysowanie konturów.
+</p>
+<p>
+	<b>Dlaczego kamienie są szare?</b> Dobre pytanie. Niestety nie jest to kwestia estetyki. Tylko szare kamienie
+	(bez narysowanych krawędzi) można łatwo skalować. Takie kamienie dobrze też "ucinają" się
+	na brzegu wypełnionego obszaru.  Kiedyś rysowałem kamienie z obwódkami, ale doszedłem do wniosku, że taki
+	sposób przedstawiania kamieni jest bardzo pracochłonny. Na pewno należy unikać rysowania każdego kamienia z osobna
+	(oczywiście za wyjątkiem sytuacji, kiedy mamy na myśli bardzo konkretny, charakterystyczny kamień!) - im
+	więcej obiektów w programie graficznym, tym wolniej będzie działał!
+</p>
+<img src="i/desenie-szare-kamienie.png">
+
+<H2>10. Kilka funkcji i klawiszy, które warto znać</H2>
+	<P>
+		<I>Ścieżka – Różnica</I>. Szczególnie przydatna do wycinania wysep w jeziorkach. Po narysowaniu jeziorka (jako
+		zamknięta, wypełniona krzywa) rysujemy wyspę (również jako zamknięta, wypełniona krzywa). Upewniamy się, że wyspa jest „na”
+		jeziorku (w razie konieczności używamy opcji <I>Obiekt – Przesuń</I> w górę lub <I>Obiekt – Przesuń</I> w dół). Zaznaczamy
+		następnie jeziorko i wyspę, i używamy <I>Ścieżka – Różnica</I>.
+	</P>
+	<P>
+		<I>Obiekt – Wyrównaj i rozmieść</I> – otwiera okno z szeregiem opcji przydanych do budowy siatek czy
+		graficznych skali. Np. rozmieść obiekty w równych odstępach, wyrównaj dolne krawędzie obiektów itd.
+	</P>
+	<P>
+		<I>Edycja / Klonuj / Utwórz klon</I> - często warto użyć tej opcji zamiast zwykłego <i>Kopiuj &amp; Wklej</i>. Klon
+		obiektu można dowolnie przesuwać, obracać, skalować. Nie można tylko ingerować w środek obiektu - który jest kopiowany
+		dokładnie z oryginału. Ma to jedną bardzo poważną zaletę - jeśli zmienimy oryginał, zmienią się wszystkie klony.
+		Co ważne, kopia klonu jest również klonem (tego samego obiektu) - wobec
+		tego o klonach wystarczy pamiętać tylko przy "pierwszym" kopiowaniu. Klony zawsze można zamienić na samodzielne
+		obiekty (<i>Edycja / Klonuj / Odłącz klon</i>). Wszystkie symbole konwencjonalne wstawione z biblioteki symboli
+		są właśnie takimi klonami. Więcej o zaawansowanym zastosowaniu klonów: <a href="klony1.1.html">w osobnym dokumencie</a>
+	</P>
+	<P>
+		<I>Skalowanie prostych:</I> warto zwrócić uwagę na to, że obiekty w <I>Inkscape</I> skalują się różnie, w zależności od
+		tego, w którą z ośmiu dostępnych strzałek skalowania się kliknie (cztery w narożnikach, cztery na bokach). Proste wskazujące
+		kierunki przekrojów poprzecznych skaluje się wygodnie zaczynając od jednego z narożników pokrywających się z końcem prostej.
+	</P>
+<P>
+	Klawisz <I><B>Ctrl</B></I> spełnia ważną rolę podczas operacji wykonywanych myszką. Jeśli przytrzyma się go:
+</P>
+<UL>
+	<LI><P>
+		podczas przesuwania obiektu – obiekt będzie przesuwał się tylko w poziomie lub tylko w pionie
+	</P>
+	<LI><P>
+		podczas rysowania linii – kolejny segment linii zostanie narysowany pod „równym” kątem (0, 90, 45, 22.5 stopnia)
+	</P>
+	<LI><P>
+		podczas skalowania obiektu – obiekt zostanie przeskalowany z zachowaniem proporcji pomiędzy szerokością i
+		wysokością (najczęściej bardzo ważne przy tworzeniu dokumentacji jaskiniowej)
+	</P>
+</UL>
+<P>
+	Klawisz <I><B>Shift</B></I> jest z kolei bardzo istotny w narzędziu zaznaczania – pozwala zaznaczyć więcej niż jeden obiekt.
+</P>
+
+<h2>11. Siatki</h2>
+<p>
+	Przykład siatki dobrze demonstruje narzędzia do precyzyjnego przesuwania i rozmieszczania w Inkscape.
+	Aby narysować siatkę, robimy tak:
+</p>
+<ol>
+	<li>rysujemy pierwszą poziomą kreskę siatki; trzymając Ctrl podczas rysowania uzyskujemy linię precyzyjnie poziomą</li>
+	<li>(opcjonalnie) rysujemy tekst opisu nad kreską (np. <i>X = 0</i> i grupujemy tekst z narysowaną kreską (Ctrl+G)</li>
+	<li>kopiujemy pierwszą kreskę (lub kreskę+opis) do schowka (Ctrl+C) i wklejamy w miejscu (Ctrl+Alt+V); to będzie ostatnia linia siatki</li>
+	<li>korzystamy z funkcji <i>Obiekt / Przekształć</i>; wybieramy tryb <i>przesuń</i> i wprowadzamy przesunięcie w pionie adekwatne dla ostatniej linii siatki (np. 100 mm, jeśli chcemy mieć 6 linii co 20 mm); klikamy w <i>Zastosuj</i></li>
+	<li>pomiędzy precyzyjnie ustawionymi pierwszą i ostatnia linią wklejamy ze schowka (byle jak) pozostałe linie siatki (Ctrl+V). ważne tylko żeby były trochę na prawo od linii precyzyjnie ustawionych</li>
+	<li>otwieramy dialog <i>Obiekt / Wyrównaj i rozmieść</i>, wybieramy <i>Względem: zaznaczenie</i></li>
+	<li>zaznaczamy wszystkie kreski (lub grupy jeśli opisywaliśmy) i klikamy ikonki: <i>Wyrównaj lewe krawędzie</i> a następnie <i>Rozmieść środki obiektów w równych odstępach w pionie</i></li>
+</ol>
+<img src="i/siatka-rozmieszczana.png">
+<p>
+	W podobny sposób możemy narysować pionowe linie siatki.
+</p>
+
+<h2>12. Przycinanie</h2>
+<p>
+	Wygodnie jest mieć wypełnienie w środku jaskini. Pomaga to przy przedstawianiu nakładających się korytarzy
+	(wypełnienie korytarza położonego wyżej ustawiamy na półprzezroczyste i czasami to wystarczy).
+	Lepiej widać, gdzie w jaskini są filary. No i właściwie mając wypełnienie nie trzeba przerywać linii siatki.
+</p>
+<p>
+	Problem jednak jest taki, że zrobienie wypełnienia wymaga masy pracy. Trzeba właściwie jeszcze raz narysować
+	obrys korytarzy jaskini. Nie da się tego załatwić jednym obiektem, bo brakuje nam funkcji "nie rysowania kawałka konturu".
+</p>
+<img src="i/jelitko1.png">
+<img src="i/jelitko2.png">
+<img src="i/jelitko3.png">
+<p>
+	Jakimś sposobem rozwiązania tego problemu jest użycie <i>przycinania</i>. Rysujemy jaskinię jako jeden wypełniony
+	obiekt, a następnie rysujemy maskę, która obetnie nam fragmenty z niepotrzebnym konturem.
+</p>
+<img src="i/maska1.png">
+<p>
+	Zaznaczamy narysowany fragment jaskini oraz narysowaną maskę i wybieramy <i>Obiekt / Przytnij / Ustaw</i>. Tak
+	nałożoną maskę przycinania można łatwo edytować przy pomocy narzędzia edycji węzłów, o ile zaznaczy się ikonkę
+	<i>Wyświetla elementy sterujące ścieżkami przycinania zaznaczonych obiektów</i>
+</p>
+<img src="i/maska2.png">
+<p>
+	Całą jaskinię możemy poskładać z wielu przyciętych elementów z różnymi stylami konturów.
+</p>
+<img src="i/maska3.png">
+<p>
+	<b>Uwaga: </b> To technika, którą warto znać, ale która nie nadaje się do uniwersalnego stosowania
+	w każdym przypadku!
+</p>
+<h2>13. Tło dla napisów</h2>
+<p>
+	Nazwy partii nachodzą na siatkę i źle to wygląda. Co możemy zrobić? Najłatwiej jest skopiować warstwę z napisami
+	(prawym klawiszem na nazwie warstwy i <i>Powiel aktywną warstwę...</i>), umieścić kopię poniżej właściwej warstwy
+	z napisami, a następnie w kopii zaznaczyć wszystko (Ctrl+A) i ustawić w <i>Wypełnieniu i konturze</i> kontur
+	dla napisów (np. biały, 1 mm). Można też ustawić przezroczystość warstwy z tłem napisów.
+</p>
+<p>
+	Tak utworzoną warstwę z napisami możemy traktować jako zupełnie tymczasową. W przypadku konieczności uaktualnienia/zmiany
+	nazw, po prostu wyrzucamy tę warstwę i tworzymy od nowa (po wprowadzeniu zmian w napisach do zasadniczej warstwy napisów).
+</p>
+<img src="i/nazwy.png">
+
+
+<h2>14. Jeszcze kilka dobrych rad</h2>
+<p>
+	<b>Wchodzenie do grup:</b> Aby edytować obiekt znajdujący się wewnątrz grupy, nie trzeba rozgrupowywać grupy. Wystarczy kliknąć dwukrotnie na
+	grupę aby "wejść" do grupy i móc dowolnie zaznaczać i edytować jej elementy, a także dodawać do grupy
+	kolejne obiekty. Aby wejść do grupy w grupie, klikamy dwukrotnie dwa razy. Aby opuścić edycję grupy, klikamy dwa razy
+	na pustym fragmencie rysunku lub używamy pola wyboru na dolnym pasku programu. Największym zagrożeniem tej funkcji jest
+	nieświadome tworzenie obiektów wewnątrz grupy (zamiast na wyższym poziomie) kiedy zapomni się z grupy "wyjść".
+</p>
+<img src="i/drobiazgi-grupy.png">
+<p>
+	<b>Edycja wielu węzłów jednocześnie:</b> Nie wszyscy wiedzą, że przy pomocy narzędzia edycji węzłów można edytować wiele obiektów <i>równocześnie</i>. Kolejne
+	obiekty dodajemy do trybu edycji klikając z wciśniętym klawiszem <i>Shift</i>. Narzędzie edycji węzłów jest też
+	świetnym sposobem aby zaznaczyć głęboko osadzony w grupach obiekt (np. aby zmienić jego styl) - nie trzeba wówczas
+	wchodzić w grupę, następnie w grupę w grupie, potem w grupę grupy grup itd. aby dotrzeć do takiego obiektu.
+</p>
+<img src="i/drobiazgi-edycja.png">
+<p>
+	<b>Kopiuj kolor, wklej kolor: </b>
+	Oprócz bardzo przydatnej funkcji <i>Edycja / Styl / Wklej styl</i> (działającej również dla wielu zaznaczonych obiektów!)
+	warto wiedzieć również o menu dostępnym pod prawym klawiszem na polach wskazujących aktualny kolor wypełnienia
+	i konturu.
+</p>
+<img src="i/drobiazgi-kolory.png">
+
+<h2>15. Klony</h2>
+<p>
+	To zaawansowana technika, dzięki której można zaoszczędzić dużo pracy przy rysowaniu planów zawierających "widoki przesunięte"
+	(np. przecinających się korytarzy). Warto o niej przeczytać: <a href="klony1.1.html">tutaj</a>. Ten opis dotyczy jednak
+	Inkscape w wersji 1.1. Technika jak najbardziej działa również w Inkscape 1.3, jednak interfejs Inkscape zdążył nieco ewoluować
+	i trzeba trochę sprytu, żeby zorientować się, gdzie teraz szukać omawianych tam funkcji. Najważniejsza wskazówka:
+	w Inkscape 1.3 nie ma już okna <b>Obiekt / obiekty</b> - wszystkie dostępne w nim funkcje zostały przeniesione do
+	okna <b>Warstwy</b>, które teraz nazywa się <b>Warstwy i obiekty</b>!
+</p>
+
+
+</body>
+</html>

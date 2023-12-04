@@ -1,0 +1,137 @@
+<html lang="pl">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style type="text/css">
+        h1 {
+            border-bottom: solid 1px black;
+        }
+        h2 {
+            margin-top: 20pt;
+            margin-bottom: 5pt;
+            padding-bottom: 0;
+            padding-top: 20pt;
+        }
+        img {
+            max-width: 100%;
+        }
+
+    </style>
+    <title>Porady - Inkscape</title>
+</head>
+<body>
+<p style="color: #800;">
+Klony to zaawansowana technika, dzięki której można zaoszczędzić dużo pracy przy rysowaniu planów zawierających "widoki przesunięte"
+(np. przecinających się korytarzy). Poniższy opis dotyczy Inkscape w wersji 1.1. Technika "klonów" jak najbardziej działa również
+w Inkscape 1.3, jednak interfejs Inkscape zdążył nieco ewoluować i trzeba trochę sprytu, żeby zorientować się, gdzie teraz szukać omawianych tam funkcji. Najważniejsza wskazówka:
+w Inkscape 1.3 nie ma już okna <b>Obiekt / obiekty</b> - wszystkie dostępne w nim funkcje zostały przeniesione do
+okna <b>Warstwy</b>, które teraz nazywa się <b>Warstwy i obiekty</b>!
+</p>
+<h1>Klony</h1>
+<h2>Wady wypełniania przez przycinanie</h2>
+<p>
+    Zaprezentowany wyżej sposób tworzenia obrysu korytarza oraz wypełnienia jako jeden obiekt z użyciem przycinania ma dwie ważne wady. Po pierwsze, trudno jest ustawić przezroczystość samego tylko wypełnienia
+    (co potrzebujemy do pokazywania przecinających się korytarzy) bez jednoczesnej zmiany przezroczystości konturu.
+    Teoretycznie możemy ustawić przezroczystość na kolorze wypełnienia (zamiast na całym obiekcie lub na warstwie),
+    ale w praktyce będziemy mieli kłopoty ze zgraniem ze sobą poszczególnych fragmentów - nie możemy wtedy nakładać ich
+    jednego na drugi bez niepożądanych efektów nakładania się na siebie przezroczystości.
+</p>
+<img src="i/opacity.png">
+<p>
+    Drugim problemem jest kolejność warstw. Chciałoby się, aby wypełnienie było na samym dole, a kontur jaskini
+    na samej górze. Pomiędzy tym powinny znajdować się szczegóły stropu i spągu. Tymczasem mając zarówno kontur,
+    jak i wypełnienie jako jeden obiekt, nie można go umieścić jednocześnie na górze i na dole całej hierarchii
+    warstw lub obiektów. W efekcie, jeśli na przykład chcemy narysować jeziorko dolegające do obrysu
+    korytarza, musimy się bardzo starać.
+</p>
+<img src="i/jeziorko.png">
+<h2>Klony jako sposób na wypełnienie</h2>
+<p>
+    Rozwiązanie tego problemu przy pomocy klonów nie jest może wybitnie eleganckie ... ale pokazuje kilka
+    kolejnych, użytecznych funkcji Inkscape. Demonstrację zaczynamy od narysowania fragmentu jaskini
+    techniką z przycinaniem (omówioną wyżej). Rysujemy go w warstwie <i>Obrys</i>. Załóżmy sobie też pustą warstwę
+    <i>Wypełnienie</i> i umieśćmy ją poniżej warstwy <i>Obrys</i>.
+</p>
+<img src="i/klony-start2.png">
+<p>
+    W istocie ten fragment składa się z dwóch mniejszych fragmentów, a każdy z nich jest przycięty.
+</p>
+<img src="i/klony-start1.png">
+<p>
+    Teraz z tych dwóch fragmentów tworzymy grupę. A następnie z tej grupy tworzymy kolejna grupę.
+    Przy pomocy dialogu <i>Obiekt / Obiekty</i> upewniamy się, że poszło dobrze. Powinniśmy
+    mieć w drzewku grupę, pod nią kolejną grupę, a dopiero pod nią dwa kształty.
+</p>
+<img src="i/klony-grupy.png">
+<p>
+    Dialog <i>Obiekt / Obiekty</i> jest bardzo ciekawy sam w sobie. Możemy przy jego pomocy
+    na przykład zmienić nazwy nowo utworzonych grup - zewnętrzna grupa niech nazywa się
+    <i>Ostylowana</i>, a wewnętrzna - <i>Nieostylowana</i>.
+</p>
+<img src="i/klony-grupy2.png">
+<p>
+    Teraz wchodzimy do grupy wewnętrznej (<i>Nieostylowanej</i>), klikając w dialogu
+    <i>Obiekt / Obiekty</i> w którykolwiek z kształtów w tej grupie. Klikamy następie Ctrl+A,
+    dzięki czemu zaznaczamy wszystkie kształty w grupie. Dalej w lewym dolnym rogu, w miejscu
+    gdzie prezentowany jest kolor wypełnienia, klikamy prawym klawiszem. Z menu wybieramy
+    <i>Nie określono wypełnienia</i>. Dla pewności wybieramy z listy obiektów również samą grupę <i>Nieostylowaną</i>
+    i również ustawiamy jej wypełnienie typu <i>Nie określono wypełnienia</i>.
+</p>
+<img src="i/klony-nie-okreslono.png">
+<p>
+    Teraz klikamy w dialogu <i>Obiekt / Obiekty</i> grupę "ostylowaną". Mając zaznaczoną
+    tę grupę, ustawiamy brak wypełnienia (klikając X z palety kolorów).
+</p>
+<img src="i/klony-ostylowana.png">
+<p>
+    I teraz nastąpi czarna magia. Zaznaczamy <i>Grupę nieostylowaną</i> w dialogu <i>Obiekt / Obiekty</i>,
+    a następnie z menu wybieramy <i>Edycja / Klony / Utwórz klon</i>. Na skutek tego ruchu na liście obiektów pojawia się nowa
+    pozycja o nazwie rodzaju <i>use24215</i>. Możemy zmienić jej nazwę - nazwijmy ją na przykład <i>Klon obrysu</i>.
+</p>
+<img src="i/klony-klonuj.png">
+<p>
+    Teraz mając zaznaczony <i>Klon obrysu</i> wybieramy kolor wypełnienia (np. szary).
+</p>
+<img src="i/klony-punkt-wyjscia.png">
+<p>
+    Wydaje się, że wróciliśmy do punktu wyjścia. A jednak, jak się zaraz okaże, sytuacja jest zgoła odmienna. Teraz
+    przenosimy obiekt <i>Klon obrysu</i> do warstwy <i>Wypełnienie</i>. Możemy to zrobić na przykład zaznaczając
+    ten obiekt na liście obiektów, a następnie klikając prawym klawiszem - ale uwaga - na <i>obszarze rysowania</i>.
+    W menu mamy wtedy do dyspozycji opcję <i>Przenieś na warstwę</i>. Na koniec blokujemy warstwę <i>Wypełnienie</i>.
+</p>
+<p>
+    Co uzyskaliśmy?
+</p>
+<ul>
+    <li>obrys i wypełnienie jaskini są na osobnych warstwach</li>
+    <li>ukrywając warstwę z wypełnieniem powodujemy, że znika wypełnienie (to samo z obrysem nie działa - chociaż da się to zrobić lekką modyfikacją całej metody)</li>
+    <li>możemy wstawić warstwę (warstwy) ze szczegółami spągu między warstwy z obrysem i z wypełnieniem - będzie się ona zachowywała zgodnie z oczekiwaniami tj. obiekty będą rysowane na wypełnieniu, ale obrys korytarza będzie je przykrywał</li>
+    <li>obiekt w wypełnieniu jest <i>klonem</i> wszystkich elementów obrysu jaskini - po zablokowaniu warstwy nie musimy już jej ruszać; aby cokolwiek zmienić wystarczy wyedytować sam obrys - klon aktualizuje się automatycznie</li>
+    <li>aby dorysować kolejną część jaskini, wystarczy wejść do grupy <i>nieostylowanej</i> i narysować jej (przycięty) obrys z konturem; dzięki sklonowaniu całej tej grupy, wypełnienie uzupełni się automatycznie ... trzeba jednak pamiętać o ustawieniu na każdym obiekcie <i>Nie określono wypełnienia</i></li>
+</ul>
+<h2>Klony jako sposób na rysowanie korytarzy przecinających się</h2>
+<p>
+    Przy pomocy okna <i>Obiekt / Obiekty</i> można zamienić warstwę w zwykłą
+    grupę (i na odwrót).
+</p>
+<img src="i/widoki-obiekty.png">
+<p>
+    Klonując warstwy możemy utworzyć widok przesunięty, który automatycznie
+    będzie uaktualniał się po modyfikacji widoku głównego. Postępujemy
+    następująco:
+</p>
+<ol>
+    <li>wszystkie warstwy, które mają być widoczne w widoku przesuniętym zamieniamy w grupy</li>
+    <li>klonujemy wszystkie te grupy (które przed chwilą były warstwami) - <i>Edycja / Klonuj / Utwórz klon</i>; klony warto sobie ponazywać (w oknie <i>Obiekt / Obiekty</i>) aby być w stanie później łatwo znaleźć który dotyczy której warstwy</li>
+    <li>tworzymy grupę złożoną z wszystkich utworzonych klonów; jeśli jest taka potrzeba to możemy zmienić kolejność ułożenia klonów (<i>Obiekt / Przenieś w górę</i> lub <i>Przenieś w dół</i>)</li>
+    <li>rysujemy prostokąt definiujący jaka część całego rysunku ma być widoczna na widoku przesuniętym</li>
+    <li>przy pomocy tego prostokąta przycinamy wcześniej utworzoną grupę klonów: zaznaczamy jednocześnie prostokąt i grupę i wybieramy <i>Obiekt / Przytnij / Ustaw</i></li>
+    <li>uzyskany widok przesunięty przesuwamy w pożądane miejsce rysunku, przenosimy do pożądanej warstwy itp. (uwaga - absolutnie nie wrzucamy go do żadnej z warstw, której użyliśmy do jego utworzenia!)</li>
+</ol>
+<p>
+    W skrajnym przypadku technikę te można zastosować do układania na stronie całego planu w ogóle. Wówczas zasadniczy rysunek planu
+    prowadzimy zupełnie poza obszarem strony, a główny widok planu w obszarze strony jest jednym z utworzonych w powyższy
+    sposób "widoków przesuniętych"
+</p>
+</body>
